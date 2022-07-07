@@ -1,0 +1,520 @@
+.custom-color-blue{
+	color: #28a7e3;
+    font-weight: 400;
+}
+.m-datatable__table th {
+	background-color:#716ACA !important;
+}
+.m-datatable__table thead span{
+	color:#fff !important;
+}
+.custom_green{
+	color:#16b92b;
+	font-weight: 600;
+	font-size:12px;
+}
+.custom_red{
+	color:#D6070A;
+	font-weight: 600;
+	font-size:12px;
+}
+.custom-hover:hover{
+	color:#54507B;
+}
+.custom-focus:focus{
+	color:darkred;
+}
+/*Css loader start */
+.cssload-container * {
+	box-sizing: border-box;
+		-o-box-sizing: border-box;
+		-ms-box-sizing: border-box;
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+}
+.cssload-container {
+	margin: 16px auto 0 auto;
+	max-width: 461px;
+}
+.cssload-container ul li{
+	list-style: none;
+}
+.cssload-flex-container {
+	display: flex;
+		display: -o-flex;
+		display: -ms-flex;
+		display: -webkit-flex;
+		display: -moz-flex;
+	flex-direction: row;
+		-o-flex-direction: row;
+		-ms-flex-direction: row;
+		-webkit-flex-direction: row;
+		-moz-flex-direction: row;
+	flex-wrap: wrap;
+		-o-flex-wrap: wrap;
+		-ms-flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+		-moz-flex-wrap: wrap;
+	justify-content: space-around;
+}
+.cssload-flex-container li {
+	padding: 8px;
+	height: 82px;
+	width: 82px;
+	margin: 25px 16px;
+	position: relative;
+	text-align: center;
+}
+.cssload-loading, .cssload-loading:after, .cssload-loading:before {
+	display: inline-block;
+	position: relative;
+	width: 4px;
+	height: 41px;
+	background: rgb(99,224,255);
+	margin-top: 4px;
+	border-radius: 825px;
+		-o-border-radius: 825px;
+		-ms-border-radius: 825px;
+		-webkit-border-radius: 825px;
+		-moz-border-radius: 825px;
+	animation: cssload-upDown2 1.15s ease infinite;
+		-o-animation: cssload-upDown2 1.15s ease infinite;
+		-ms-animation: cssload-upDown2 1.15s ease infinite;
+		-webkit-animation: cssload-upDown2 1.15s ease infinite;
+		-moz-animation: cssload-upDown2 1.15s ease infinite;
+	animation-direction: alternate;
+		-o-animation-direction: alternate;
+		-ms-animation-direction: alternate;
+		-webkit-animation-direction: alternate;
+		-moz-animation-direction: alternate;
+	animation-delay: 0.29s;
+		-o-animation-delay: 0.29s;
+		-ms-animation-delay: 0.29s;
+		-webkit-animation-delay: 0.29s;
+		-moz-animation-delay: 0.29s;
+}
+.cssload-loading:after, .cssload-loading:before {
+	position: absolute;
+	content: '';
+	animation: cssload-upDown 1.15s ease infinite;
+		-o-animation: cssload-upDown 1.15s ease infinite;
+		-ms-animation: cssload-upDown 1.15s ease infinite;
+		-webkit-animation: cssload-upDown 1.15s ease infinite;
+		-moz-animation: cssload-upDown 1.15s ease infinite;
+	animation-direction: alternate;
+		-o-animation-direction: alternate;
+		-ms-animation-direction: alternate;
+		-webkit-animation-direction: alternate;
+		-moz-animation-direction: alternate;
+}
+.cssload-loading:before {
+	left: -8px;
+}
+.cssload-loading:after {
+	left: 8px;
+	animation-delay: 0.58s;
+		-o-animation-delay: 0.58s;
+		-ms-animation-delay: 0.58s;
+		-webkit-animation-delay: 0.58s;
+		-moz-animation-delay: 0.58s;
+}
+@keyframes cssload-upDown {
+	from {
+		transform: translateY(16px);
+	}
+	to {
+		transform: translateY(-16px);
+	}
+}
+@-o-keyframes cssload-upDown {
+	from {
+		-o-transform: translateY(16px);
+	}
+	to {
+		-o-transform: translateY(-16px);
+	}
+}
+@-ms-keyframes cssload-upDown {
+	from {
+		-ms-transform: translateY(16px);
+	}
+	to {
+		-ms-transform: translateY(-16px);
+	}
+}
+@-webkit-keyframes cssload-upDown {
+	from {
+		-webkit-transform: translateY(16px);
+	}
+	to {
+		-webkit-transform: translateY(-16px);
+	}
+}
+@-moz-keyframes cssload-upDown {
+	from {
+		-moz-transform: translateY(16px);
+	}
+	to {
+		-moz-transform: translateY(-16px);
+	}
+}
+@keyframes cssload-upDown2 {
+	from {
+		transform: translateY(25px);
+	}
+	to {
+		transform: translateY(-16px);
+	}
+}
+@-o-keyframes cssload-upDown2 {
+	from {
+		-o-transform: translateY(25px);
+	}
+	to {
+		-o-transform: translateY(-16px);
+	}
+}
+@-ms-keyframes cssload-upDown2 {
+	from {
+		-ms-transform: translateY(25px);
+	}
+	to {
+		-ms-transform: translateY(-16px);
+	}
+}
+@-webkit-keyframes cssload-upDown2 {
+	from {
+		-webkit-transform: translateY(25px);
+	}
+	to {
+		-webkit-transform: translateY(-16px);
+	}
+}
+@-moz-keyframes cssload-upDown2 {
+	from {
+		-moz-transform: translateY(25px);
+	}
+	to {
+		-moz-transform: translateY(-16px);
+	}
+}
+/*Css loader end*/
+/*=====================Project-Room=======================*/
+#project_room .m-portlet__head-title{
+	    display:contents;
+}
+#project_room span.members{
+	    font-weight: 400;
+    		color: #969494;
+}
+.inner-left-side{
+	    background: #fbf9f9;
+    padding: 10px;
+    border: 1px solid #edf2f3;
+	    overflow-y: auto;
+    height: 400px;
+}
+.m-project .m-messenger__message-pic{
+	    display: table-cell;
+	    vertical-align: top;
+	    width: 40px;
+	    padding: 0 10px 0 0;
+}
+.m-project img.mCS_img_loaded{
+	     max-width: 60px;
+}
+.m-project .m-messenger__messages .m-messenger__message{
+	    display: table;
+    table-layout: fixed;
+        margin: 0 0 20px 0;
+}
+.m-project .m-messenger__message-body {
+    display: table-cell;
+    vertical-align: top;
+    padding: 0;
+    position: relative;
+}
+.m-project .m-messenger__message {
+	border: 1px solid #efefef;
+	/*margin-right: 12px;*/
+	background: #fbfbfb;
+	border-radius: 2px;
+	padding: 5px;
+   	margin-bottom: 5px;
+}
+.new-messanger-msg{
+	margin-left: 0;	
+	border-top: 2px solid #5fa2ad;    	
+    	margin-right: 0px;
+    	padding-top: 25px;
+}
+.m-project .new-messanger-msg>div{
+	padding-left: 0;	
+}
+.m-project .m-messenger__message-text{
+	    font-size: 13.2px;
+}
+.m-project .m-messenger__message-username{
+	 font-weight: 500;
+}
+.members ul {
+  list-style-type: none;
+}
+.chats-others{
+	color: #2c2c2c;
+	margin-bottom: 6px;
+	border-radius: 2px;
+	border: 1px solid #dfe3e4;
+}
+.chats-others .m-alert__icon{
+	padding:0 !important;vertical-align: top !important; 
+}
+.chats-others p{
+	margin-bottom: 0px;
+}
+.chats-others .msg-body{
+	 padding: 8px;
+}
+#listAllRooms>p{
+    background: #fbfbfb;
+    border: 1px solid #f7f7f7;
+    text-decoration: none;
+    padding: 2px;
+    margin-bottom: 2px;
+}
+#listAllRooms>p>a{    color: #45b0c3;}
+#listAllRooms>p>a:active{    color: #20c85a;}
+#listAllRooms>p>a:hover{
+	text-decoration: none;
+}
+/**
+ * chat widget
+ */
+#message-list .m-messenger__message-content{
+	padding: 9px 46px 25px !important;
+}
+.m-quick-sidebar{
+	overflow-y: hidden !important;
+}
+#message-list{
+	overflow-y: scroll !important;
+	max-height: 360px !important;
+}
+.users-list-search-container{
+	position: fixed; 
+	display: inline-block; 
+	bottom: 0px; 
+	width: 100%;
+	overflow: hidden;
+	background: #fff;
+}
+.user-search{
+	/*position: fixed; */
+	display: inline-block; 
+	bottom: 0px; 
+	width: 90%;
+}
+.m-list-timeline__text:hover{
+color:#716aca;
+font-weight: bold;
+}
+/**
+ * admin chat
+ */
+#listAllTeamRooms{
+	max-height: 250px;
+    overflow-y: scroll;
+}
+.hide{
+	display: none !important;
+}
+.btn-sm-custom{
+	height: 17px;
+    width: 17px;
+    padding: 0px;
+}
+/* SHIFT MANAGEMENT */
+#shift-management-table td {
+	max-width: 158px !important;
+}
+.Monday{
+	background: #ffb822 !important;
+	color: white;
+	}
+.Tuesday{
+	background: #c4c5d6 !important;
+	color: white;
+}
+.Wednesday{
+	background: #28a7e3 !important;
+	color: white;
+}
+.Thursday{
+	background:  #00cc99!important;
+	color: white;
+}
+.Friday{
+	background:  #f4516c!important;
+	color: white;
+}
+.Saturday{
+	background:  #36a3f7!important;
+	color: white;
+}
+.Sunday{
+	background: #990099 !important;
+	color: white;
+}
+/* OFF PERSON  */
+.shift-off{
+	color: red;
+	font-weight: 400;
+}
+.white-space{
+	white-space: normal;
+}
+.skill{
+	background: #f3f3f3;
+    padding: 3px 5px;
+    border-radius: 2px;
+	margin: 1px 0px;
+	display: inline-block;
+	width: 100%;
+}
+.skill-left{
+float: left;
+padding: 3px 0px;
+font-weight: 400;
+}
+.skill-right{
+float: right;
+}
+.skill-right i.fa-trash,.skill-right i.fa-times{    color: #ff7474;}
+.skill-right i.fa-check{color: #42ce2c;}
+#hours_1 .m-badge{
+	margin: 16px;
+}
+#hours_1 .panel{
+	padding: 18px;
+}
+#hours_12 .m-badge{
+	margin: 16px;
+}
+#hours_12 .panel{
+	padding: 18px;
+}
+.m-brand__logo-wrapper img{
+	width: 130px !important;
+}
+.notice-board{
+	width: 100%; 
+	float: left;
+    padding: 16px;
+    margin: 10px;
+	max-width: auto;
+	font-family: 'Open Sans', sans-serif !important;
+}
+.notice-board img{
+	max-width: 300px !important;
+}
+@media (min-width: 993px) {
+    .m-page--fluid .m-page .m-page__container {
+      padding: 0 34px !important; } }
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+}
+ul {
+  list-style: none;
+}
+ul li {
+  display: inline-block;
+}
+/* slider */
+.slider, .slider ul.carousel, .slider ul.carousel li {
+  min-height: 75px;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+.slider ul.carousel li h1 {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+/* pagnation  <- -> */
+.slider ul.sliderpagnation li a {
+  color: #ccc;
+}
+.slider ul.sliderpagnation li.selected a {
+  color: #937AFF;
+}
+.slider ul.sliderpagnation li {
+  padding: 0 3px;
+  height: 28px;
+  line-height: 28px;
+}
+.primary {
+  color: #000;
+}
+.bg-1 {
+ padding: 20px;
+}
+#m_user_profile_tab_1 table a:hover{
+	color: #5867dd;
+    text-decoration: none;
+    font-weight: 600;
+}
+#punchin>span{
+	font-weight: 600;
+}
+.core{
+	z-index: 9999;
+    position: absolute;
+    /* left: 247px; */
+}
+.image22:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    min-height: 150px;
+}
+.image22 {
+    -moz-box-sizing: border-box;
+    border: 1px solid #DDDDDD;
+    float: left;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.delete22 {
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+}
+.delete22:after {
+    content: '';
+    position:absolute;
+     top:0;
+    right:0;
+    height: 20px;
+    width: 20px;
+    background: #F00;
+}
+.text-green{
+	color:#23ed0c;
+}
+.text-black{
+	color:#000;
+}
+.mrg-top-30{
+	margin-top: 30px;
+}
+.mrg-top-24{
+	margin-top: 24px;
+}
+@media (min-width: 992px) {
+  .modal-xlg {
+    max-width: 1200px; 
+    } }
