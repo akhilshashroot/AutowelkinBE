@@ -29,7 +29,7 @@ class SkillUpdate extends Mailable
      */
     public function build()
     {
-        return $this->from("site@hashroot.com", "HashRoot One Review Request")
+        return $this->from("site@hashroot.com", "Autowelkin One Review Request")
         ->subject('Review Request from '.$this->details->user->fullname)
         ->html('<div style="font-family:calibri; max-width: 300px;"> Employee name : '.$this->details->user->fullname.'<br /> Requested for Review :	<b>'.$this->details->skill_name.' </b><br /> Request time : '.date("d F Y h.i A").'</div>');
     }

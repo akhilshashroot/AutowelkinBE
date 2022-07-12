@@ -29,9 +29,9 @@ class ForcePunchoutMail extends Mailable
      */
     public function build()
     {
-        return $this->from('site@hashroot.com','HashRoot One')
+        return $this->from('site@hashroot.com','Autowelkin One')
         ->subject($this->subject)
-        ->cc('hr@hashroot.com')
-        ->html('<br/>You have been punched out of your HashRoot One automatically, since you were idle for 12 hours! <br />');
+        ->cc('lijimol.vr@hashroot.com')
+        ->html('<br/>You have been punched out of your Autowelkin One automatically, since you were idle for 12 hours! <br />');
     }
 }

@@ -43,15 +43,15 @@ class LeaveRequestMail extends Mailable
             $cc_a[] = $value;
         }
         }
-        $cc_a[] = 'hr@hashroot.com';
+        $cc_a[] = 'lijimol.vr@hashroot.com';
         $cc_a=array_filter($cc_a);
-        $email4 = "requests@hashroot.com";
+        $email4 = "lijimol.vr@hashroot.com";
        // dd(  $cc_a);
       //  $this->email->cc($cc_a);
         // $this->email->cc('hr@hashroot.com');
      
      
-        return $this->to($email4)->from("site@hashroot.com", "HashRoot One")
+        return $this->to($email4)->from("site@hashroot.com", "Autowelkin One")
         ->cc( $cc_a)
         ->subject($subject)
         ->view('template.leave-request-mail', ['user_data' => $user_data,'request_data' =>$request_data, 'rqtype' =>$rqtype]);

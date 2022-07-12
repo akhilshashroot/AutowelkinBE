@@ -38,8 +38,8 @@ class ResetPassword extends Mailable
         $user['token'] = $this->token;
         $user['url'] = $this->url;
 
-        return $this->from("site@hashroot.com", "HashRoot One")
-        ->subject('HashRoot One Password Reset Link')
+        return $this->from("site@hashroot.com", "Autowelkin One")
+        ->subject('Autowelkin One Password Reset Link')
         ->view('template.reset-password', ['user' => $user]);
     }
 }

@@ -96,7 +96,7 @@ class DailyCron extends Command
                         
                     }
                 }else{
-                        array_push($to_a,"hr@hashroot.com");
+                        array_push($to_a,"lijimol.vr@hashroot.com");
                         $examiner_name		.= "Not assigned";
                 }
                 $message_content .= '<td>'.$examiner_name.'</td>';
@@ -158,8 +158,8 @@ class DailyCron extends Command
 				}
                 $count++;
             }
-            $send_to[0]="hr@hashroot.com";
-			$send_to[1]="qa@hashroot.com";
+            $send_to[0]="lijimol.vr@hashroot.com";
+			$send_to[1]="akhil.s@hashroot.com";
             try {
                 $subject = "Zero Break Time List - ".$date;
                 Mail::to($send_to)->send(new ZeroBreaktimeList($message_content,$subject));
@@ -261,7 +261,7 @@ class DailyCron extends Command
                     $taskData	=	$value;
                     $assignee	=	User::where('id',$taskData->assign_to)->first();
                     if($value->date==date("Y-m-d",strtotime('tomorrow'))){
-                        $taskData->message 	=	" Hi ".$assignee->fullname."<p>This is a reminder from HashRoot One regarding the deadline associated with the task assigned to you via PE. You have one day left to complete the task </p>";
+                        $taskData->message 	=	" Hi ".$assignee->fullname."<p>This is a reminder from Autowelkin One regarding the deadline associated with the task assigned to you via PE. You have one day left to complete the task </p>";
                         $this->notifyUpdater($taskData);
                     }
                     if($value->date==date("Y-m-d",strtotime('yesterday'))){

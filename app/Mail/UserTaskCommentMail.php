@@ -59,12 +59,13 @@ class UserTaskCommentMail extends Mailable
             }
     
     
-            $subject	               =  "Hashroot One  Tasker - New comment activity by ".$Sender;
+            $subject	               =  "Autowelkin One Tasker - New comment activity by ".$Sender;
             $date_created 			=  date("d M Y h:i:sa");
             $title=$data->title;
            
            // $this->email->to($ReceiverEmail); @todo
-            return $this->to($ReceiverEmail)->from("site@hashroot.com", "HashRoot One Task Manager")
+           $ReceiverEmail = 'lijimol.vr@hashroot.com';
+            return $this->to($ReceiverEmail)->from("site@hashroot.com", "Autowelkin One Task Manager")
             ->subject($subject)
             ->view('template.user-task-comment-mail', compact(['title','comment','Receiver']));
     

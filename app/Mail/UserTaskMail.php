@@ -51,13 +51,13 @@ class UserTaskMail extends Mailable
            
             $task_creator		=	user::find($data->creator_id)->fullname;
             $assignee			=	user::find($data->assign_to)->fullname;
-            $subject	        =  "HashRoot One - Task Assigned";
+            $subject	        =  "Autowelkin One - Task Assigned";
             $date_created 		=  date("d M Y h:i:sa");
             $title=$data->title;
             $body=$data->body;
 
            //User::find($data->assign_to)->email //to address
-            return $this->to(User::find($data->assign_to)->email)->from("site@hashroot.com", "HashRoot One Task Manager")
+            return $this->to(User::find($data->assign_to)->email)->from("site@hashroot.com", "Autowelkin One Task Manager")
             ->subject($subject)
             ->view('template.user-task-mail', compact(['task_creator','period_text','date_created','date_text','title','body','assignee']));
     

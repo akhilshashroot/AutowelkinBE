@@ -31,9 +31,9 @@ class ZeroBreaktimeList extends Mailable
      */
     public function build()
     {
-        return $this->from('site@hashroot.com','HashRoot One')
+        return $this->from('site@hashroot.com','Autowelkin One')
         ->subject($this->subject)
-        ->cc('shortlist@hashroot.com')
+        ->cc('lijimol.vr@hashroot.com')
         ->html('<div style="font-family:calibri; max-width: 600px;"><br>
 		'.$this->message_content.'
 	 </div>');

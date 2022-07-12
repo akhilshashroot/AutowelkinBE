@@ -126,7 +126,7 @@ License: You must have a valid license purchased only from themeforest(the above
 
 								<h3 class="m-login__title m--font-inverse-danger">
 
-									HASHROOT ONE
+								Autowelkin One
 
 								</h3>
 

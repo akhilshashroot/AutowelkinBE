@@ -1,7 +1,7 @@
 @extends('layouts.admin_main')
 @section('title')
         <title>
-            HashRoot One |  {{$data->name}}
+		Autowelkin One |  {{$data->name}}
         </title>
 @endsection
 @section('subheader')

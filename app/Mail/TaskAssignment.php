@@ -29,8 +29,8 @@ class TaskAssignment extends Mailable
      */
     public function build()
     {
-        return $this->from("site@hashroot.com", "HashRoot One Task Manager")
-        ->subject('HashRoot One - Task Assigned')
+        return $this->from("site@hashroot.com", "Autowelkin One Task Manager")
+        ->subject('Autowelkin One - Task Assigned')
         ->html(' Hi '.$this->maildata["assignee"].', 
         <p>
             A new  '.$this->maildata["period_text"].' task has been assigned by '.$this->maildata["task_creator"].' on '.$this->maildata["date_created"].'

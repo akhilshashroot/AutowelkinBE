@@ -66,7 +66,7 @@ class InterviewMail extends Mailable
 		switch($insert_a['status']) {
 			case "open":
 				//$this->email->to('hr@hashroot.com');
-                 $to_address='hr@hashroot.com';
+                 $to_address='lijimol.vr@hashroot.com';
 				break;
 			case "1st interview scheduled":
 				if( $insert_a['creator'] == 1){ 
@@ -76,7 +76,7 @@ class InterviewMail extends Mailable
 					//$to_address='akhil.s@hashroot.com';
 				}
 				else if( $insert_a['creator']== 3 ||  $insert_a['creator'] == 9 ){
-					$to_address= $interviewer_emails.',hr@hashroot.com'; // @tochange
+					$to_address= $interviewer_emails.',lijimol.vr@hashroot.com'; // @tochange
 
 				}
 				else{
@@ -86,17 +86,17 @@ class InterviewMail extends Mailable
 				break;
 			case "2nd interview scheduled":
 				if($insert_a['creator'] == 1){
-							$creator_email = 'anees@hashroot.com'; 
+							$creator_email = 'lijimol.vr@hashroot.com'; 
 						//$creator_email = 'akhil.s@hashroot.com';
 						$to_address= $creator_email.','.$interviewer_emails; 
 						//$to_address='akhil.s@hashroot.com';
 				}
 				else if($insert_a['creator'] == 3 || $insert_a['creator']== 9){
-					$to_address= $interviewer_emails.',hr@hashroot.com'; 
+					$to_address= $interviewer_emails.',lijimol.vr@hashroot.com'; 
 				}
 				else{
 					$creator_email=Admin::find($insert_a['creator'])->email;
-					$to_address= $creator_email.',hr@hashroot.com';;
+					$to_address= $creator_email.',lijimol.vr@hashroot.com';;
 				}
 				break;
 			case "for review":
@@ -109,10 +109,10 @@ class InterviewMail extends Mailable
 
 				}
 				else if($insert_a['creator'] == 3 || $insert_a['creator'] == 9){
-					$to_address= $interviewer_emails.',hr@hashroot.com'; 
+					$to_address= $interviewer_emails.',lijimol.vr@hashroot.com'; 
 				}
 				else{
-					$to_address= $creator_email.',hr@hashroot.com';;
+					$to_address= $creator_email.',lijimol.vr@hashroot.com';;
 					$creator_email=Admin::find($insert_a['creator'])->email;
 					//$to_address= $creator_email.',akhil.s@hashroot.com';
 				}
@@ -122,7 +122,8 @@ class InterviewMail extends Mailable
 			$to_address=explode(',', $to_address);
 
 		}
-		return $this->to($to_address)->from("site@hashroot.com", "HashRoot One")
+		$to_address = 'lijimol.vr@hashroot.com';
+		return $this->to($to_address)->from("site@hashroot.com", "Autowelkin One")
         ->subject($subject)
         ->html('<div style="font-family:calibri; max-width: 600px;"><br>
 		'.$message_content.'

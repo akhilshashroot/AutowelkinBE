@@ -31,8 +31,8 @@ class RequestApprove extends Mailable
      */
     public function build()
     {
-        return $this->from("site@hashroot.com", "HashRoot One")
-        ->subject('HashRoot One '.$this->request_type)
+        return $this->from("site@hashroot.com", "Autowelkin One")
+        ->subject('Autowelkin One '.$this->request_type)
         ->html('Hi  , <br/><p><b> Requested date '.date('d M Y',$this->request->lv_aply_date).'</b></p><p>Your '.$this->request_type.' request has been approved</p>');
     }
 }

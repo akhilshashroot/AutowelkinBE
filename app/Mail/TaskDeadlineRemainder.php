@@ -31,7 +31,7 @@ class TaskDeadlineRemainder extends Mailable
      */
     public function build()
     {
-        return $this->from('site@hashroot.com',' HashRoot One Task Manager')
+        return $this->from('site@hashroot.com',' Autowelkin One Task Manager')
         ->subject('PE Tasker - Deadline Reminder')
         //->cc('shortlist@hashroot.com')
         ->html($this->message."<br /> Task : ".$this->title);

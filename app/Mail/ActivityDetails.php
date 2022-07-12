@@ -52,7 +52,7 @@ class ActivityDetails extends Mailable
      */
     public function build()
     {
-        return $this->from($this->datas['email'], "HashRoot One")
+        return $this->from($this->datas['email'], "Autowelkin One")
         ->subject('Work Report - '.$this->datas['employee'])
         ->view('mail.activity_details', ['datas' => $this->datas,'daily_activity' => $this->daily_activity,'daily_activity_list'=>$this->daily_activity_list,'weekly_checklist' => $this->weekly_checklist,
     'fullWeeklyChecklist' => $this->fullWeeklyChecklist,'full_weekly_workreport' => $this->full_weekly_workreport,'weekly_workreport' => $this->weekly_workreport ,

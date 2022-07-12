@@ -128,7 +128,7 @@ class SimpleCron extends Command
                     $wrkd_hrs->save();
                 }
                 try {
-                    $subject ="HashRoot One - Force Punch Out -".$user['fullname'];
+                    $subject ="Autowelkin One - Force Punch Out -".$user['fullname'];
                     Mail::to($user->user->email)->send(new ForcePunchoutMail($subject));
                 } catch (\Exception $e) {
                     Log::info( "ForcePunchout mail:".$e->getMessage());
