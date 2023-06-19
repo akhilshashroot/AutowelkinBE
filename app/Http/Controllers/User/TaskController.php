@@ -38,7 +38,8 @@ class TaskController extends Controller
                 $task1['status'] =$taskdata->status;
                 $task1['deadline']=$taskdata->date;
                 $task1['task_attachment']=($taskdata->task_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->task_attachment:'';
-                $task1['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Anees T';
+                $task1['comment_attachment']=($taskdata->comment_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->comment_attachment:'';
+                $task1['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Admin';
                 $task1['task_description']=$taskdata->body;
                 $task1['date']=$taskdata->time_stamp;
                 $task1['comment'] =	unserialize($taskdata->comments);
@@ -58,7 +59,8 @@ class TaskController extends Controller
                         $task2['status'] =$taskdata->status;
                         $task2['deadline']=$taskdata->date;
                         $task2['task_attachment']=($taskdata->task_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->task_attachment:'';
-                        $task2['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Anees T';
+                        $task2['comment_attachment']=($taskdata->comment_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->comment_attachment:'';
+                        $task2['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Admin';
                         $task2['task_description']=$taskdata->body;
                         $task2['date']=$taskdata->time_stamp;
                         $task2['comment'] =	unserialize($taskdata->comments);
@@ -70,7 +72,8 @@ class TaskController extends Controller
                         $task2['status'] =$taskdata->status;
                         $task2['deadline']=$taskdata->date;
                         $task2['task_attachment']=($taskdata->task_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->task_attachment:'';
-                        $task2['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Anees T';
+                        $task2['comment_attachment']=($taskdata->comment_attachment)?  env('APP_URL').'/storage/tasks/'.$taskdata->comment_attachment:'';
+                        $task2['assigner']=(User::find($taskdata->creator_id))?User::find($taskdata->creator_id)->fullname:'Admin';
                         $task2['task_description']=$taskdata->body;
                         $task2['date']=$taskdata->time_stamp;
                         $task2['comment'] =	unserialize($taskdata->comments);
@@ -177,7 +180,7 @@ class TaskController extends Controller
          }
         $data   = Assignment::find($asgnmnt_id);
         $getComment  = unserialize($data->comments);  
-        $newComment['date']						= 	 date("dFY h:i:s a");
+        $newComment['date']						= 	 date("d M Y h:i:s a");
         $newComment['time_stamp']				=	strtotime("now");
         $newComment['comments']					=	$comment;
         $newComment['status']					=	$status;
@@ -191,16 +194,25 @@ class TaskController extends Controller
         // $updateStatus		   =	 $this->User_model->updateTaskComment($asgnmnt_id,$serializeComment);
         $data->comments=$serializeComment;
         $data->status=$status;
+        if($request->attachment!="null"){
+            $file = $request->file('attachment');
+            $exte = $file->extension();
+            $newFileName = "attachment";
+            $path = $file->storeAs('public/tasks',trim($newFileName).strtotime('now').".".$exte);
+            $task_attachment = $newFileName.strtotime('now').'.'.$exte ;
+            $data->comment_attachment =  $task_attachment ;
+        }
+        
         $data->save();
         if($data) {
-            // try {
+            try {
 
-            //     Mail::send(new UserTaskCommentMail($mail_data,$comment_data,$user_id));
+                Mail::send(new UserTaskCommentMail($mail_data,$comment_data,$user_id));
                   
-            //     } catch (\Exception $e) {
+                } catch (\Exception $e) {
                   
-            //     Log::info( "user task comment mail:".$e->getMessage());
-            //     }
+                Log::info( "user task comment mail:".$e->getMessage());
+                }
          return response()->json([
              'status' => true,
              'message' => 'Success'

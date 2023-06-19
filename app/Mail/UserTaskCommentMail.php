@@ -45,13 +45,13 @@ class UserTaskCommentMail extends Mailable
                 $Sender				=	 User::find($data->creator_id)->fullname;
                 $ReceiverEmail	 = User::find($data->assign_to)->email;
             }elseif($data->creator_id==1){
-                $Receiver			=	"Anees T";
+                $Receiver			=	"Admin";
                 $Sender				=	 User::find($data->assign_to)->fullname;
-                $ReceiverEmail	 =	 "anees@hashroot.com";
+                $ReceiverEmail	 =	 "akhil.s@hashroot.com";
             }elseif($data->creator_id==7){
                 $Receiver			=	"Muneer Muhammad";
                 $Sender				=	 User::find($data->assign_to)->fullname;
-                $ReceiverEmail	 =	 "muneer@hashroot.com";
+                $ReceiverEmail	 =	 "akhil.s@hashroot.com";
             }else{
                 $Receiver			=	 User::find($data->creator_id)->fullname;
                 $Sender				=	 User::find($data->assign_to)->fullname;
@@ -64,7 +64,7 @@ class UserTaskCommentMail extends Mailable
             $title=$data->title;
            
            // $this->email->to($ReceiverEmail); @todo
-           $ReceiverEmail = 'lijimol.vr@hashroot.com';
+           $ReceiverEmail = 'akhil.s@hashroot.com';
             return $this->to($ReceiverEmail)->from("site@hashroot.com", "Autowelkin One Task Manager")
             ->subject($subject)
             ->view('template.user-task-comment-mail', compact(['title','comment','Receiver']));

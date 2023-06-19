@@ -9,9 +9,10 @@ use App\Models\Admin;
 use App\Models\User;
 use DB;
 use App\Mail\TaskAssignment;
+use App\Mail\AdminTaskComment;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Log;
-
+use Auth;
 class TaskerController extends Controller
 {
   /**
@@ -33,6 +34,12 @@ class TaskerController extends Controller
 				else{
 					$data['taskListOwn'][$key]->task_attachment = ($value->task_attachment)? env('APP_URL').'storage/tasks/'.$value->task_attachment:"";
 				}
+                if($data['taskListOwn'][$key]->comment_attachment == ""){
+					$data['taskListOwn'][$key]->comment_attachment = "";
+				}
+				else{
+					$data['taskListOwn'][$key]->comment_attachment = ($value->comment_attachment)? env('APP_URL').'storage/tasks/'.$value->comment_attachment:"";
+				}
                 $data['taskListOwn'][$key]->comments=unserialize($value->comments);
                 $assign=Admin::where('id', $data['taskListOwn'][$key]->creator_id)->first();
                 $data['taskListOwn'][$key]['assigner']=isset($assign)?$assign->name:'';
@@ -47,6 +54,12 @@ class TaskerController extends Controller
 				}
 				else{
 					$data['tasklistOthers'][$key]->task_attachment = ($value->task_attachment)?  env('APP_URL').'storage/tasks/'.$value->task_attachment:"";
+				}
+                if($data['tasklistOthers'][$key]->comment_attachment == ""){
+					$data['tasklistOthers'][$key]->comment_attachment = "";
+				}
+				else{
+					$data['tasklistOthers'][$key]->comment_attachment = ($value->comment_attachment)?  env('APP_URL').'storage/tasks/'.$value->comment_attachment:"";
 				}
                 Log::info($value->asgnmnt_id );
                 $data['tasklistOthers'][$key]->comments=unserialize($value->comments);
@@ -165,7 +178,13 @@ class TaskerController extends Controller
         $insert_assignment =  json_decode( json_encode($insert_assignment), true);
         $tasker = Assignment::create(  $insert_assignment );
         try{
-			Mail::to($userdata->email)->send(new TaskAssignment($maildata));
+            if($userdata->id==839){
+                Mail::to('hr@hashroot.com')->send(new TaskAssignment($maildata));
+
+            }else{
+                Mail::to($userdata->email)->send(new TaskAssignment($maildata));
+
+            }
 		} catch (\Exception $e) {
 			Log::info( "task assignment mail:".$e->getMessage());
 		}
@@ -215,7 +234,7 @@ class TaskerController extends Controller
     {
         	//$user_id 				 =	 $this->session->userdata('user_id');
 		$asgnmnt_id				=	$request->task_id;
-		$comment				=	htmlspecialchars($request->comment);
+		$comment				=	$request->comment;
         $creater_id=$request->creater_id;
 		$status					 =	$request->status;
 		 if($status){
@@ -224,21 +243,24 @@ class TaskerController extends Controller
 			$status=0;
 		 }
 		$admin_name=Admin::where('id', $creater_id)->first();
+        if(!$admin_name){
+            $admin_name= Auth::user();
+        }
 		$data		=Assignment::select('assignments.*','users.fullname as name', DB::raw('DATE_FORMAT(time_stamp, "%d-%M-%Y %h:%i %p, %a") as realDate'))
                                ->leftJoin('users','users.id','=','assignments.assign_to')
                               
 		                       ->where('asgnmnt_id',$asgnmnt_id)->first();
 
-
+        $mail_data[]=$data;
 		$getComment  = unserialize($data->comments);
 
-		$newComment['date']						= 	 date("dFY h:i:s a"); 
+		$newComment['date']						= 	 date("d M Y h:i:s a"); 
 		$newComment['time_stamp']				=	strtotime("now");
 		$newComment['comments']					=	$comment;
 		$newComment['status']					=	$status;
 		$newComment['name']						=$admin_name->name;
 		array_push($getComment,$newComment);
-		
+        $comment_data[]=$newComment;
 		$serializeComment	=	serialize($getComment);
 		// $serializeComment   =	["comments"=>$serializeComment,"status"=>$status];
 		// $updateStatus		   =   $this->Admin_model->updateTaskComment($asgnmnt_id,$serializeComment);
@@ -246,7 +268,24 @@ class TaskerController extends Controller
         $assgn = Assignment::find($asgnmnt_id);
         $assgn->status =$status;
         $assgn->comments =$serializeComment;
+        if($request->attachment!="null"){
+            $file = $request->file('attachment');
+            $exte = $file->extension();
+            $newFileName = "attachment";
+            $path = $file->storeAs('public/tasks',trim($newFileName).strtotime('now').".".$exte);
+            $task_attachment = $newFileName.strtotime('now').'.'.$exte ;
+            $assgn->comment_attachment =  $task_attachment ;
+        }
         $assgn->save();   
+
+        try {
+
+            Mail::send(new AdminTaskComment($mail_data,$comment_data,$creater_id));
+              
+            } catch (\Exception $e) {
+              
+            Log::info( "user task comment mail:".$e->getMessage());
+            }
             return response()->json([
                 'status' => true,
                 'message' => 'Success'
